@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import questionsData from "./data.json"
+import Questions from './components/Questions/Questions'
 import './App.css'
 
 function App() {
@@ -24,18 +25,7 @@ const handleActive = (id) => {
     <>
     <div className="container">
       <h3>FAQ</h3>
-      <div className="questions">
-        {
-        questions.map((question) => (
-          <div className="question" onClick={() => handleActive(question.id)} key={question.id}>
-            <p>{question.question}</p>
-            {question.active ? <p>{question.answer}</p> : null}
-          </div>
-        )
-         
-        )
-      }
-      </div>
+      <Questions questions={questions} setQuestions={setQuestions}/>
       
     </div>
       
