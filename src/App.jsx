@@ -4,33 +4,37 @@ import viteLogo from '/vite.svg'
 import questionsData from "./data.json"
 import Questions from './components/Questions/Questions'
 import './App.css'
+import GlobalStyles from './GlobalStyle'
+import styled from 'styled-components'
 
 function App() {
   const [questions, setQuestions] = useState(
      questionsData.map(q => ({ ...q, active: false }))
   );
   
-const handleActive = (id) => {
-  const updatedQuestions = questions.map((question) => {
-      if (question.id === id) {
-        // toggle only the clicked question
-        return { ...question, active: !question.active };
-      }
-      return question;
-    });
-    setQuestions(updatedQuestions);
-}
   console.log(questions)
   return (
     <>
-    <div className="container">
+    <GlobalStyles/>
+    <Container>
       <h3>FAQ</h3>
       <Questions questions={questions} setQuestions={setQuestions}/>
       
-    </div>
+    </Container>
       
     </>
   )
 }
 
-export default App
+export default App;
+
+const Container = styled.div `
+  background-color: white;
+  padding: 13.2rem 2.4rem 4.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+  border-radius: 23px;
+
+`

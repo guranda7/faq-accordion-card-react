@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 export default function Questions({questions, setQuestions}) {
     const handleActive = (id) => {
   const updatedQuestions = questions.map((question) => {
@@ -10,17 +12,25 @@ export default function Questions({questions, setQuestions}) {
     setQuestions(updatedQuestions);
 }
     return (
-    <div className="questions">
+    <QuestionsDiv>
         {
         questions.map((question) => (
           <div className="question" onClick={() => handleActive(question.id)} key={question.id}>
             <p>{question.question}</p>
-            {question.active ? <p>{question.answer}</p> : null}
+            {question.active ? <p>{question.answer}</p> : null
+            
+        }
           </div>
         )
          
         )
       }
-      </div>
+      </QuestionsDiv>
       )
 }
+
+const QuestionsDiv = styled.div `
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+`
