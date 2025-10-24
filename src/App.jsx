@@ -1,39 +1,44 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import questionsData from "./data.json"
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [questions, setQuestions] = useState(
+     questionsData.map(q => ({ ...q, active: false }))
+  );
+  
+const handleActive = (id) => {
+  const updatedQuestions = questions.map((question) => {
+      if (question.id === id) {
+        // toggle only the clicked question
+        return { ...question, active: !question.active };
+      }
+      return question;
+    });
+    setQuestions(updatedQuestions);
+}
+  console.log(questions)
   return (
     <>
-      <div className='container'>
-        <div className="question-div">
-            <p>question 1</p>
-            <p>answer 1</p>
-        </div>
-
-        <div className="question-div">
-            <p>question 2</p>
-            <p>answer 2</p>
-        </div>
-
-        <div className="question-div">
-            <p>question 3</p>
-            <p>answer 3</p>
-        </div>
-
-        <div className="question-div">
-            <p>question 4</p>
-            <p>answer 4</p>
-        </div>
-
-        <div className="question-div">
-            <p>question 5</p>
-            <p>answer 5</p>
-        </div>
+    <div className="container">
+      <h3>FAQ</h3>
+      <div className="questions">
+        {
+        questions.map((question) => (
+          <div className="question" onClick={() => handleActive(question.id)} key={question.id}>
+            <p>{question.question}</p>
+            {question.active ? <p>{question.answer}</p> : null}
+          </div>
+        )
+         
+        )
+      }
       </div>
+      
+    </div>
+      
     </>
   )
 }

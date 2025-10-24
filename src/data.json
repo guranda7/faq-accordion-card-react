@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "question": "What is this website about?",
+    "answer": "This website provides helpful tools and resources to make your daily tasks easier and more efficient."
+  },
+  {
+    "id": 2,
+    "question": "How can I contact customer support?",
+    "answer": "You can reach our support team through the Contact Us page or by sending an email to support@example.com."
+  },
+  {
+    "id": 3,
+    "question": "Do I need to create an account to use the service?",
+    "answer": "No, you can browse freely without an account. However, creating one gives you access to additional features."
+  },
+  {
+    "id": 4,
+    "question": "Is my personal information secure?",
+    "answer": "Yes. We take privacy seriously and use encryption to protect all user data."
+  },
+  {
+    "id": 5,
+    "question": "Can I access the website on my phone or tablet?",
+    "answer": "Absolutely! The site is fully responsive and works smoothly on all devices."
+  }
+]
